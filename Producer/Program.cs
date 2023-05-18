@@ -12,13 +12,12 @@ using var producer = new ProducerBuilder<Null, string>(config).Build();
 
 try
 {
-    string? state;
+    string? mensaje;
     Console.WriteLine("Ingrese msjes para enviar a la cola:");
-    while ((state = Console.ReadLine()) != null)
+    while ((mensaje = Console.ReadLine()) != null)
     {
         var response = await producer.ProduceAsync("weather-topic",
-            new Message<Null, string> { Value = JsonConvert.SerializeObject(
-                new Weather(state, 70))});
+            new Message<Null, string> { Value = mensaje});
     }
 }
 catch (ProduceException<Null, string> ex)

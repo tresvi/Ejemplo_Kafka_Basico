@@ -24,8 +24,9 @@ try
         if (response.Message != null)
         {
             Console.WriteLine($"Llego un msje!: {response.Message.Value}");
-            var weather = JsonConvert.DeserializeObject<Weather>(response.Message.Value);
-            Console.WriteLine($"State: {weather.State}, Temp: {weather.Temperature} ºC");
+            //var weather = JsonConvert.DeserializeObject<Weather>(response.Message.Value);
+            //Console.WriteLine($"State: {weather.State}, Temp: {weather.Temperature} ºC");
+            Thread.Sleep( 1000 );
         }
     }
 }
