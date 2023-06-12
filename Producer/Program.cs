@@ -16,7 +16,7 @@ try
     Console.WriteLine("Ingrese msjes para enviar a la cola:");
     while ((mensaje = Console.ReadLine()) != null)
     {
-        var response = await producer.ProduceAsync("weather-topic",
+        var response = await producer.ProduceAsync("test",
             new Message<Null, string> { Value = mensaje});
     }
 }

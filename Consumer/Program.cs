@@ -5,14 +5,14 @@ Console.WriteLine("Ejecutando Consumer simple...");
 
 var config = new ConsumerConfig
 {
-    GroupId = "weather-consumer-group",
+    GroupId = "test-consumer-group",
     BootstrapServers = "localhost:9092",
     AutoOffsetReset = AutoOffsetReset.Earliest
 };
 
 using var consumer = new ConsumerBuilder<Null, string>(config).Build();
 
-consumer.Subscribe("weather-topic");
+consumer.Subscribe("test");
 
 CancellationTokenSource token = new();
 
@@ -26,7 +26,7 @@ try
             Console.WriteLine($"Llego un msje!: {response.Message.Value}");
             //var weather = JsonConvert.DeserializeObject<Weather>(response.Message.Value);
             //Console.WriteLine($"State: {weather.State}, Temp: {weather.Temperature} ºC");
-            Thread.Sleep( 1000 );
+            Thread.Sleep(10);
         }
     }
 }
